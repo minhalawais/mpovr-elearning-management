@@ -1,94 +1,115 @@
 import React from 'react';
-import { 
-  Globe, 
-  MessageSquare, 
-  Bell, 
-  ArrowRight, 
-  BookOpen, 
-  Clock 
-} from 'lucide-react';
+import { Globe, MessageSquare, Bell, ArrowRight, Clock, Shield, Users, Zap, FileText } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#006d77] text-white py-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('')] opacity-5"></div>
+    <footer className="bg-gradient-to-br from-[#3756C0] to-[#399fc6] text-white py-16 pb-4 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2ZmZmZmZiI+PC9yZWN0Pgo8cGF0aCBkPSJNMzYgNDZjMCAyLjIwOS0xLjc5MSA0LTQgNHMtNC0xLjc5MS00LTQgMS43OTEtNCA0LTQgNCAxLjc5MSA0IDR6IiBmaWxsPSIjMzk5ZmM2IiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9wYXRoPgo8L3N2Zz4=')]"></div>
+      
       <div className="container mx-auto px-6 relative">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and About */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold flex items-center space-x-3">
-              <Globe className="w-6 h-6" />
-              <span>MPOVR Training</span>
+          <div className="space-y-6 bg-white/10 p-6 rounded-2xl backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
+            <h3 className="text-3xl font-bold flex items-center space-x-4">
+              <Globe className="w-8 h-8 text-[#E18400] animate-pulse" />
+              <span className="tracking-wider">MPOVR</span>
             </h3>
-            <p className="text-gray-300">Transforming careers, building futures</p>
+            <p className="text-[#edf6f9] text-opacity-90 text-sm leading-relaxed">
+              Revolutionizing ERP Training for Career Transformation
+            </p>
             <div className="flex space-x-4 pt-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-                <Globe className="w-5 h-5" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-                <MessageSquare className="w-5 h-5" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-                <Bell className="w-5 h-5" />
-              </div>
+              {[
+                { icon: <Globe />, label: 'Website' },
+                { icon: <MessageSquare />, label: 'Contact' },
+                { icon: <Bell />, label: 'Notifications' }
+              ].map((item, index) => (
+                <a 
+                  key={index} 
+                  href="#" 
+                  aria-label={item.label}
+                  className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-[#E18400] hover:scale-110 transition-all transform"
+                >
+                  {React.cloneElement(item.icon, { className: 'w-6 h-6' })}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Training Programs */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Training Programs</h4>
+          {/* ERP Programs */}
+          <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
+            <h4 className="font-semibold text-xl mb-6 text-[#E18400] border-b border-white/20 pb-3">ERP Programs</h4>
             <ul className="space-y-4">
-              {['Cloud Computing', 'Data Science', 'DevOps', 'Cybersecurity'].map((program, index) => (
+              {['SAP S/4HANA', 'Oracle Cloud ERP', 'Microsoft Dynamics 365', 'Workday'].map((program, index) => (
                 <li
                   key={index}
-                  className="hover:text-[#83c5be] transition-colors cursor-pointer flex items-center space-x-2"
+                  className="hover:text-[#E18400] transition-colors group cursor-pointer flex items-center space-x-3"
                 >
-                  <ArrowRight className="w-4 h-4" />
-                  <span>{program}</span>
+                  <ArrowRight className="w-5 h-5 text-[#e5e7eb] group-hover:translate-x-1 transition-transform" />
+                  <span className="group-hover:pl-2 transition-all">{program}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Resources</h4>
+          {/* Platform Features */}
+          <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
+            <h4 className="font-semibold text-xl mb-6 text-[#E18400] border-b border-white/20 pb-3">Platform Features</h4>
             <ul className="space-y-4">
-              {['Alumni Stories', 'Tech Blog', 'Career Guide', 'Help Center'].map((resource, index) => (
+              {[
+                { name: 'Virtual Classrooms', icon: <Users className="w-5 h-5 text-[#e5e7eb]" /> },
+                { name: 'Secure Environment', icon: <Shield className="w-5 h-5 text-[#e5e7eb]" /> },
+                { name: 'Career Support', icon: <Zap className="w-5 h-5 text-[#e5e7eb]" /> },
+                { name: 'Digital Agreements', icon: <FileText className="w-5 h-5 text-[#e5e7eb]" /> },
+              ].map((feature, index) => (
                 <li
                   key={index}
-                  className="hover:text-[#83c5be] transition-colors cursor-pointer flex items-center space-x-2"
+                  className="hover:text-[#E18400] transition-colors group cursor-pointer flex items-center space-x-3"
                 >
-                  <BookOpen className="w-4 h-4" />
-                  <span>{resource}</span>
+                  {feature.icon}
+                  <span className="group-hover:pl-2 transition-all">{feature.name}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Connect With Us */}
-          <div>
-            <h4 className="font-semibold text-lg mb-6">Connect With Us</h4>
+          <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
+            <h4 className="font-semibold text-xl mb-6 text-[#E18400] border-b border-white/20 pb-3">Connect With Us</h4>
             <ul className="space-y-4">
-              <li className="flex items-center space-x-3">
-                <MessageSquare className="w-5 h-5 text-[#83c5be]" />
-                <span>admissions@mpovr.com</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Bell className="w-5 h-5 text-[#83c5be]" />
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-[#83c5be]" />
-                <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
-              </li>
+              {[
+                { icon: <MessageSquare />, text: 'support@mpovr.com' },
+                { icon: <Bell />, text: '+1 (555) 123-4567' },
+                { icon: <Clock />, text: '24/7 Support Available' }
+              ].map((contact, index) => (
+                <li 
+                  key={index} 
+                  className="flex items-center space-x-3 hover:text-[#E18400] transition-colors group cursor-pointer"
+                >
+                  {React.cloneElement(contact.icon, { className: 'w-5 h-5 text-[#e5e7eb] group-hover:rotate-6 transition-transform' })}
+                  <span className="group-hover:pl-2 transition-all">{contact.text}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="border-t border-white/20 mt-12 pt-8 text-center">
-          <p className="text-gray-300">&copy; 2024 MPOVR Training. All rights reserved.</p>
+          <p className="text-[#edf6f9] text-sm">
+            &copy; 2024 MPOVR. All rights reserved. | 
+            <a 
+              href="#" 
+              className="hover:text-[#E18400] ml-2 hover:underline transition-colors"
+            >
+              Privacy Policy
+            </a> | 
+            <a 
+              href="#" 
+              className="hover:text-[#E18400] ml-2 hover:underline transition-colors"
+            >
+              Terms of Service
+            </a>
+          </p>
         </div>
       </div>
     </footer>

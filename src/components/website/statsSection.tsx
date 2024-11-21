@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react'
 import { Users, Trophy, Briefcase, DollarSign } from 'lucide-react'
+import theme from "../theme"; // Adjust the path as needed
 
 interface StatCardProps {
   number: string

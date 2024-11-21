@@ -5,10 +5,12 @@ import StatsSection from './statsSection.tsx'
 import ProcessSection from './processSection.tsx';
 import FeaturesSection from './featureSection.tsx';
 import ProgramTermsSection from './programTermsSection.tsx'
-import CTASection from './ctaSection.tsx';
+import ContactSection from './contactSection.tsx';
 import Footer from './footer.tsx';
 import HeroSection from './header.tsx';
 import FAQSection  from './faqSection.tsx';
+import theme from "../theme"; // Adjust the path as needed
+
 const LandingPage = () => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -29,18 +31,17 @@ const LandingPage = () => {
       {/* Hero Section with enhanced gradient and pattern */}
       <HeroSection/>
 
-      <StatsSection/>
 
       <TopCoursesSection/>
+      <FeaturesSection/>
 
       <ProcessSection/>
-      <FeaturesSection/>
 
       <ProgramTermsSection/>
 
       
       <FAQSection/>
-      <CTASection/>
+      <ContactSection/>
 
       <Footer/>
     </div>

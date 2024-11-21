@@ -2,14 +2,13 @@
 module.exports = {
   theme: {
     extend: {
-      colors: {
-        primary: '#006d77',
-        secondary: '#83c5be',
-        background: '#ffffff',
-        foreground: '#333333',
-        'muted-foreground': '#666666',
-      },
-    },
+      fontFamily: {
+        benzin: ['Benzin', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        // Add this line
+        benzinTtf: 'local("Benzin"), url("../fonts/Benzin-Bold.ttf") format("truetype")',
+      }
+    }
   },
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",

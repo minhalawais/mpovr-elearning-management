@@ -1,130 +1,117 @@
 import React from 'react'
-import { 
-  Clock, Heart, DollarSign, Calendar, CheckCircle, Shield, 
-  BookOpen, Zap, Users, Briefcase 
-} from 'lucide-react'
+import { UserCircle, Monitor, Shield, FileText, Zap, BarChart, ArrowRight } from 'lucide-react'
 
-interface TermCardProps {
+interface FeatureCardProps {
   icon: React.ReactNode
   title: string
   description: string
   additionalDetail?: string
 }
 
-const TermCard: React.FC<TermCardProps> = ({ icon, title, description, additionalDetail }) => (
-  <div className="bg-[#edf6f9] p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 group">
-    <div className="flex items-start space-x-6">
-      <div className="w-16 h-16 bg-[#006d77] text-white rounded-2xl flex items-center justify-center flex-shrink-0 transform group-hover:scale-110 transition-transform">
-        {icon}
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, additionalDetail }) => (
+  <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-b-4 border-transparent hover:border-[#E18400] relative group overflow-hidden h-[270px] flex flex-col justify-between">
+    <div className="absolute -top-8 -right-8 w-32 h-32 bg-[#edf6f9] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-300 transform group-hover:scale-125"></div>
+    <div className="relative z-10 flex-grow">
+      <div className="w-14 h-14 bg-gradient-to-br from-[#399fc6] to-[#3756C0] text-white rounded-2xl flex items-center justify-center mb-4 transform group-hover:rotate-6 transition-transform duration-300 shadow-md">
+        {React.cloneElement(icon as React.ReactElement, { className: "w-6 h-6" })}
       </div>
-      <div>
-        <h3 className="text-2xl font-bold mb-4 text-[#006d77] group-hover:text-[#83c5be] transition-colors">{title}</h3>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
-        {additionalDetail && (
-          <p className="text-sm text-[#83c5be] mt-2 italic">{additionalDetail}</p>
-        )}
-      </div>
+      <h3 className="text-lg font-semibold mb-2 text-[#3756C0] group-hover:text-[#E18400] transition-colors duration-300">{title}</h3>
+      <p className="text-sm text-gray-600 leading-relaxed mb-2">{description}</p>
+      {additionalDetail && (
+        <p className="text-xs text-[#399fc6] italic">{additionalDetail}</p>
+      )}
     </div>
-    <div className="mt-8 pt-6 border-t border-gray-200">
-      <div className="flex items-center space-x-3 text-[#006d77]">
-        <CheckCircle className="w-5 h-5" />
-        <span className="text-sm font-medium">Flexible Options Available</span>
-      </div>
+    <div className="mt-4 pt-2 border-t border-gray-100 flex items-center justify-between">
+      <span className="text-sm font-medium text-[#3756C0]">Learn More</span>
+      <ArrowRight className="w-4 h-4 text-[#E18400] opacity-0 group-hover:opacity-100 transform translate-x-1 group-hover:translate-x-0 transition-all duration-300" />
     </div>
   </div>
 )
 
-interface Term {
-  icon: React.ReactNode
-  title: string
-  description: string
-  additionalDetail?: string
-}
-
-const defaultTerms: Term[] = [
+const features = [
   {
-    icon: <Clock className="w-6 h-6" />,
-    title: "Adaptive Timeline",
-    description: "Complete your training within 18 months at your personalized pace",
-    additionalDetail: "Modular learning paths tailored to individual progress"
+    icon: <UserCircle />,
+    title: "Personalized Learning Experience",
+    description: "Access your custom dashboard with adaptive learning paths and real-time progress tracking.",
+    additionalDetail: "Tailored for professionals with 2+ years of experience"
   },
   {
-    icon: <Heart className="w-6 h-6" />,
-    title: "Comprehensive Support",
-    description: "Dedicated assistance for medical emergencies with compassionate re-enrollment",
-    additionalDetail: "Holistic student wellness program"
+    icon: <Monitor />,
+    title: "Immersive Virtual Classrooms",
+    description: "Engage in interactive live sessions and access pre-recorded content from industry experts.",
+    additionalDetail: "Cutting-edge LMS with dynamic assessments"
   },
   {
-    icon: <DollarSign className="w-6 h-6" />,
-    title: "Transparent Pricing",
-    description: "Comprehensive, all-inclusive pricing with guaranteed no hidden costs",
-    additionalDetail: "Flexible payment plans available"
+    icon: <Shield />,
+    title: "Secure Learning Environment",
+    description: "Benefit from two-factor authentication and admin-moderated communications for a safe experience.",
+    additionalDetail: "Anonymous usernames for privacy protection"
   },
   {
-    icon: <Shield className="w-6 h-6" />,
-    title: "Academic Assurance",
-    description: "18-month re-enrollment window for qualifying circumstances",
-    additionalDetail: "Performance guarantee and success tracking"
+    icon: <FileText />,
+    title: "Streamlined Enrollment",
+    description: "Complete your application, schedule interviews, and sign agreements digitally with ease.",
+    additionalDetail: "Integrated with DocuSign for paperless workflow"
   },
   {
-    icon: <Users className="w-6 h-6" />,
-    title: "Career Transition",
-    description: "Targeted support for professionals seeking to enter high-growth IT careers",
-    additionalDetail: "Comprehensive career guidance and placement assistance"
+    icon: <Zap />,
+    title: "Career Transformation Support",
+    description: "Receive comprehensive guidance, including mock interviews and resume optimization.",
+    additionalDetail: "Placement assistance upon successful completion"
   },
   {
-    icon: <Briefcase className="w-6 h-6" />,
-    title: "Professional Prerequisites",
-    description: "Designed for individuals with 2+ years of work experience and strong academic backgrounds",
-    additionalDetail: "Rigorous candidate selection process"
+    icon: <BarChart />,
+    title: "Advanced Analytics",
+    description: "Track your progress with detailed analytics and receive periodic performance assessments.",
+    additionalDetail: "Real-time insights for continuous improvement"
   }
 ]
 
-interface ProgramTermsSectionProps {
+interface ProgramFeaturesSectionProps {
   title?: string
   subtitle?: string
-  terms?: Term[]
-  backgroundImage?: string
 }
 
-const ProgramTermsSection: React.FC<ProgramTermsSectionProps> = ({
-  title = "Program Guidelines",
-  subtitle = "Program Terms",
-  terms = defaultTerms,
-  backgroundImage = '',
+const ProgramFeaturesSection: React.FC<ProgramFeaturesSectionProps> = ({
+  title = "Revolutionizing ERP Training",
+  subtitle = "MPOVR Portal Features",
 }) => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {backgroundImage && (
-        <div 
-          className="absolute inset-0 opacity-5 bg-repeat z-0" 
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        ></div>
-      )}
+    <section className="py-12 bg-gradient-to-b from-white to-[#edf6f9] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iI2ZmZmZmZiI+PC9yZWN0Pgo8cGF0aCBkPSJNMzYgNDZjMCAyLjIwOS0xLjc5MSA0LTQgNHMtNC0xLjc5MS00LTQgMS43OTEtNCA0LTQgNCAxLjc5MSA0IDR6IiBmaWxsPSIjMzk5ZmM2IiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-20"></div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <span className="text-[#006d77] bg-[#006d77]/10 px-4 py-2 rounded-full text-sm font-medium">
+        <div className="text-center mb-12">
+          <span className="text-[#399fc6] bg-[#399fc6]/10 px-4 py-1 rounded-full text-xs font-semibold inline-block mb-4 shadow-sm">
             {subtitle}
           </span>
-          <h2 className="text-4xl font-bold mt-6 text-[#006d77]">{title}</h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Our comprehensive program is designed to provide flexibility, support, and an exceptional learning experience for career-driven professionals.
+          <h2 className="text-4xl font-bold mt-4 leading-tight text-[#3756C0]">
+          Revolutionizing <span className="text-[#E18400] MontserratFont">ERP Training</span>
+          </h2>
+          <p className="text-base text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed">
+            Experience a world-class ERP training platform designed to transform your professional journey with cutting-edge technology and unparalleled support.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {terms.map((term, index) => (
-            <TermCard 
-              key={index}
-              icon={term.icon}
-              title={term.title}
-              description={term.description}
-              additionalDetail={term.additionalDetail}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <div key={index}>
+              <FeatureCard 
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                additionalDetail={feature.additionalDetail}
+              />
+            </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <a href="#" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#E18400] to-[#3756C0] text-white text-sm font-medium rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md">
+            Start Your ERP Journey Today
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>
   )
 }
 
-export default ProgramTermsSection
+export default ProgramFeaturesSection
