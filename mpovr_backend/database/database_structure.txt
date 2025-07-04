@@ -1,0 +1,386 @@
+CREATE ROLE learner;
+CREATE ROLE trainer;
+CREATE ROLE admin;
+CREATE ROLE role_admin;
+
+GRANT SELECT ON users, profiles, programs, applications, payments, enrollments, modules, content, assignments, submissions, quizzes, quiz_questions, quiz_options, quiz_attempts, quiz_responses, messages, agreements, progress_tracking TO learner;
+GRANT INSERT, UPDATE ON applications, payments, submissions, quiz_attempts, quiz_responses, messages, progress_tracking TO learner;
+
+GRANT SELECT ON users, profiles, programs, enrollments, modules, content, assignments, submissions, quizzes, quiz_questions, quiz_options, quiz_attempts, quiz_responses, messages, progress_tracking TO trainer;
+GRANT INSERT, UPDATE ON content, assignments, quizzes, quiz_questions, quiz_options, messages TO trainer;
+GRANT UPDATE ON submissions, quiz_attempts, progress_tracking TO trainer;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO role_admin;
+GRANT USAGE, CREATE ON SCHEMA public TO role_admin;
+
+CREATE USER mprovr_app WITH PASSWORD 'M.m03007493358';
+GRANT learner, trainer, admin, role_admin TO mprovr_app;
+
+
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE submissions ENABLE ROW LEVEL SECURITY;
+
+
+-- Allow trainers to view and update content related to their programs
+ALTER TABLE content ENABLE ROW LEVEL SECURITY;
+
+
+-- Prevent users from deleting data
+REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM public;
+
+-- Enums
+CREATE TYPE user_role AS ENUM ('learner', 'trainer', 'admin', 'role_admin');
+CREATE TYPE application_status AS ENUM ('pending', 'approved', 'rejected');
+CREATE TYPE payment_status AS ENUM ('pending', 'completed', 'refunded');
+CREATE TYPE message_status AS ENUM ('pending', 'approved', 'rejected');
+
+-- Users table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role user_role NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP WITH TIME ZONE,
+    last_login_ip INET
+);
+
+-- Profiles table
+CREATE TABLE profiles (
+    profile_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    full_name VARCHAR(100) NOT NULL,
+    date_of_birth DATE,
+    phone_number VARCHAR(20),
+    address TEXT,
+    education_history JSONB,
+    work_experience JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Programs table
+CREATE TABLE programs (
+    program_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    duration INTEGER, -- in days
+    fee DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Applications table
+CREATE TABLE applications (
+    application_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    status application_status NOT NULL DEFAULT 'pending',
+    interview_slot TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Payments table
+CREATE TABLE payments (
+    payment_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    amount DECIMAL(10, 2) NOT NULL,
+    status payment_status NOT NULL DEFAULT 'pending',
+    stripe_payment_id VARCHAR(100),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Enrollments table
+CREATE TABLE enrollments (
+    enrollment_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    status VARCHAR(20) NOT NULL DEFAULT 'active',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Modules table
+CREATE TABLE modules (
+    module_id SERIAL PRIMARY KEY,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    order_number INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Content table
+CREATE TABLE content (
+    content_id SERIAL PRIMARY KEY,
+    module_id INTEGER REFERENCES modules(module_id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    content_type VARCHAR(50) NOT NULL,
+    content_url VARCHAR(255),
+    content_text TEXT,
+    order_number INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Assignments table
+CREATE TABLE assignments (
+    assignment_id SERIAL PRIMARY KEY,
+    module_id INTEGER REFERENCES modules(module_id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    due_date TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Submissions table
+CREATE TABLE submissions (
+    submission_id SERIAL PRIMARY KEY,
+    assignment_id INTEGER REFERENCES assignments(assignment_id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    content TEXT,
+    submitted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    grade DECIMAL(5, 2)
+);
+
+-- Messages table
+CREATE TABLE messages (
+    message_id SERIAL PRIMARY KEY,
+    sender_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    recipient_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    status message_status NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Static Pages table
+CREATE TABLE static_pages (
+    page_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Enums
+CREATE TYPE user_role AS ENUM ('learner', 'trainer', 'admin', 'role_admin');
+CREATE TYPE application_status AS ENUM ('pending', 'approved', 'rejected');
+CREATE TYPE payment_status AS ENUM ('pending', 'completed', 'refunded');
+CREATE TYPE message_status AS ENUM ('pending', 'approved', 'rejected');
+CREATE TYPE content_type AS ENUM ('virtual_live_session', 'video', 'reading', 'assignment', 'practicum', 'presentation', 'quiz');
+CREATE TYPE enrollment_status AS ENUM ('active', 'completed', 'discontinued');
+
+-- Users table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role user_role NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP WITH TIME ZONE,
+    last_login_ip INET,
+    two_factor_enabled BOOLEAN DEFAULT FALSE,
+    two_factor_secret VARCHAR(255)
+);
+
+-- Profiles table
+CREATE TABLE profiles (
+    profile_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    full_name VARCHAR(100) NOT NULL,
+    date_of_birth DATE,
+    phone_number VARCHAR(20),
+    address TEXT,
+    education_history JSONB,
+    work_experience JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Programs table
+CREATE TABLE programs (
+    program_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    duration INTEGER, -- in days
+    fee DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Applications table
+CREATE TABLE applications (
+    application_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    status application_status NOT NULL DEFAULT 'pending',
+    interview_slot TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Payments table
+CREATE TABLE payments (
+    payment_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    amount DECIMAL(10, 2) NOT NULL,
+    status payment_status NOT NULL DEFAULT 'pending',
+    stripe_payment_id VARCHAR(100),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Enrollments table
+CREATE TABLE enrollments (
+    enrollment_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    status enrollment_status NOT NULL DEFAULT 'active',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Modules table
+CREATE TABLE modules (
+    module_id SERIAL PRIMARY KEY,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    order_number INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Content table
+CREATE TABLE content (
+    content_id SERIAL PRIMARY KEY,
+    module_id INTEGER REFERENCES modules(module_id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    content_type content_type NOT NULL,
+    content_url VARCHAR(255),
+    content_text TEXT,
+    file_path VARCHAR(255),
+    order_number INTEGER NOT NULL,
+    opens_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    closes_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Assignments table
+CREATE TABLE assignments (
+    assignment_id SERIAL PRIMARY KEY,
+    content_id INTEGER REFERENCES content(content_id) ON DELETE CASCADE,
+    description TEXT,
+    due_date TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Submissions table
+CREATE TABLE submissions (
+    submission_id SERIAL PRIMARY KEY,
+    assignment_id INTEGER REFERENCES assignments(assignment_id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    file_path VARCHAR(255),
+    submitted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    grade DECIMAL(5, 2)
+);
+
+-- Quizzes table
+CREATE TABLE quizzes (
+    quiz_id SERIAL PRIMARY KEY,
+    content_id INTEGER REFERENCES content(content_id) ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    time_limit INTEGER, -- in minutes
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Quiz Questions table
+CREATE TABLE quiz_questions (
+    question_id SERIAL PRIMARY KEY,
+    quiz_id INTEGER REFERENCES quizzes(quiz_id) ON DELETE CASCADE,
+    question_text TEXT NOT NULL,
+    question_type VARCHAR(50) NOT NULL, -- e.g., 'multiple_choice', 'true_false', etc.
+    order_number INTEGER NOT NULL
+);
+
+-- Quiz Options table
+CREATE TABLE quiz_options (
+    option_id SERIAL PRIMARY KEY,
+    question_id INTEGER REFERENCES quiz_questions(question_id) ON DELETE CASCADE,
+    option_text TEXT NOT NULL,
+    is_correct BOOLEAN NOT NULL,
+    order_number INTEGER NOT NULL
+);
+
+-- Quiz Attempts table
+CREATE TABLE quiz_attempts (
+    attempt_id SERIAL PRIMARY KEY,
+    quiz_id INTEGER REFERENCES quizzes(quiz_id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    end_time TIMESTAMP WITH TIME ZONE,
+    score DECIMAL(5, 2)
+);
+
+-- Quiz Responses table
+CREATE TABLE quiz_responses (
+    response_id SERIAL PRIMARY KEY,
+    attempt_id INTEGER REFERENCES quiz_attempts(attempt_id) ON DELETE CASCADE,
+    question_id INTEGER REFERENCES quiz_questions(question_id) ON DELETE CASCADE,
+    option_id INTEGER REFERENCES quiz_options(option_id) ON DELETE CASCADE
+);
+
+-- Messages table
+CREATE TABLE messages (
+    message_id SERIAL PRIMARY KEY,
+    sender_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    recipient_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    status message_status NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Agreements table
+CREATE TABLE agreements (
+    agreement_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    program_id INTEGER REFERENCES programs(program_id) ON DELETE CASCADE,
+    agreement_text TEXT NOT NULL,
+    signed_at TIMESTAMP WITH TIME ZONE,
+    docusign_envelope_id VARCHAR(100),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Progress Tracking table
+CREATE TABLE progress_tracking (
+    progress_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    content_id INTEGER REFERENCES content(content_id) ON DELETE CASCADE,
+    completed_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+

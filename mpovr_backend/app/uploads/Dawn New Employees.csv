@@ -1,0 +1,127 @@
+"employee_id","employee_name","worker_type","department","designation","mobile_number","gender","office_id","entry_date","cnic_no","employee_left","temp_data","company_id","employee_left_date"
+"861670","Muhammad Nadeem Asghar","Staff","Technical","Industrial Technician","03064194279","Male","84","2024-12-14 04:10:42","36501-8299180-3","0","Manga Plant","107812",NULL
+"861737","Tayyab Sameer","Staff","Technical","Officer","0309-9418829","Male","84","2024-12-14 04:10:43","3510109167107","0","Manga Plant","108511",NULL
+"861738","Saqlan Manzoor","Staff","Quality","Quality Officer","0341-5276077","Male","78","2024-12-14 04:10:43","3530299660937","0","Manga Plant","108512",NULL
+"862650","Muhammed Shafiq","Labor","Supply Chain","Helper","03044733871","Male","83","2024-12-14 04:10:42","3330384072093","0","Manga Plant","102044",NULL
+"862665","Istekhar Ahmad","Labor","Technical","Helper","03060659159","Male","84","2024-12-14 04:10:42","3520203928805","0","Manga Plant","107023",NULL
+"862680","Muhammad Ashmal Khan","Labor","Technical","Helper","03086770179","Male","84","2024-12-14 04:10:42","3310498863501","0","Manga Plant","108350",NULL
+"862719","Anwaar Ahmad","Labor","Admin","Security Supervisor","03076073793","Male","72","2024-12-14 04:10:43","3820111316023","0","Manga Plant","108455",NULL
+"862738","Muhammd Ahmad Khan","Labor","Admin","Security Guard","0308-2837436","Male","72","2024-12-14 04:10:43","3450275324337","0","Manga Plant","108514",NULL
+"863653","Muhammed Waqas","Staff","Sales","Merchandiser","03048741716","Male","82","2024-12-14 04:10:42","3520229673189","0","DFF Head Office","102407",NULL
+"863714","Zain Ul Abideen","Staff","Technical","Asst. Refrigration","0309-7996695","Male","84","2024-12-14 04:10:43","3530212739201","0","Manga Plant","108433",NULL
+"864652","Muhammed Faisal","Labor","Supply Chain","Helper","03328181493","Male","83","2024-12-14 04:10:42","3310696198545","0","Manga Plant","102201",NULL
+"864654","Muhammad Rafaqat","Labor","Supply Chain","Helper","03174364065","Male","83","2024-12-14 04:10:42","3520267892789","0","Manga Plant","102458",NULL
+"864657","Muhammed Mustafa","Labor","Technical","Skewer","03029413214","Male","84","2024-12-14 04:10:42","3510131540945","0","Manga Plant","103086",NULL
+"864682","Imran Meeran","Labor","Technical","Mechanical technician","0349-3312365","Male","84","2024-12-14 04:10:42","3650178518185","0","Manga Plant","108363",NULL
+"864715","Asad Ali","Labor","Technical","Technician","0301-7375792","Male","84","2024-12-14 04:10:43","3530350874033","0","Manga Plant","108436",NULL
+"864728","Irfan Ali","Labor","Technical","Electricial Technician","0312-1478886","Male","84","2024-12-14 04:10:43","3520225583185","0","Manga Plant","108481",NULL
+"864739","Danial Goerge","Labor","Technical","Samosa Patti Maker","0303-9906528","Male","84","2024-12-14 04:10:43","3510165523507","0","Manga Plant","108515",NULL
+"864740","Arslan Ali","Labor","Technical","Skewer","0302-0582281","Male","84","2024-12-14 04:10:43","3650161745627","0","Manga Plant","108516",NULL
+"871733","Muhammad Rizwan","Staff","Quality","Quality Officer","0309-8323753","Male","91","2024-12-14 04:10:43","3650161715733","0","ATA Head Office","108508",NULL
+"872647","Muhammad Afzal","Labor","Technical","Chef","03097779319","Male","97","2024-12-14 04:10:42","3520112345781","0","Kamhan Lahore","100054",NULL
+"872648","Irfan Amir","Labor","Supply Chain","Store Officer","0320-2812609","Male","96","2024-12-14 04:10:42","5440068964867","0","ATA Head Office","100093",NULL
+"872693","Amir Nazir","Labor","Supply Chain","KPO","0307-1680130","Male","96","2024-12-14 04:10:42","3110483053797","0","ATA Head Office","108381",NULL
+"872718","Muhammad Akash","Labor","Admin","Office Boy","0325-4206205","Male","85","2024-12-14 04:10:43","3230193296095","0","Kamhan Lahore","108454",NULL
+"872724","Mulazim Hussain","Labor","Admin","Security Guard","0300-9581841","Male","85","2024-12-14 04:10:43","3730211160449","0","ATA Head Office","108474",NULL
+"872729","Ali Waqas","Labor","Technical","Machine Operator","0300-7524634","Male","97","2024-12-14 04:10:43","3540130120349","0","ATA Head Office","108485",NULL
+"872742","Sana Ullah","Labor","Technical","Technician","0332-8012241","Male","97","2024-12-14 04:10:43","1720180247881","0","ATA Head Office","108520",NULL
+"874649","Muhammad Shakeel","Labor","Technical","Chef","03097779319","Male","97","2024-12-14 04:10:42","3130326398275","0","ATA Head Office","100540",NULL
+"874681","Irfan Shah","Labor","Supply Chain","Driver","0308-1366665","Male","96","2024-12-14 04:10:42","3520211215473","0","ATA Head Office","108362",NULL
+"874710","Khizar Hayyat","Labor","Admin","Security Incharge","0304-0792074","Male","85","2024-12-14 04:10:42","3820195635827","0","ATA Head Office","108423",NULL
+"874734","Kashif Mansoor","Labor","Technical","Shift Incharge","0301-5025887","Male","97","2024-12-14 04:10:43","3330239718895","0","ATA Head Office","108509",NULL
+"874741","Muhammad Farhan Ali Ghaffar","Labor","Technical","Process Controller","0309-0791461","Male","97","2024-12-14 04:10:43","3310060719397","0","ATA Head Office","108517",NULL
+"874745","Muhammad Javed","Labor","Admin","Security Guard","0343-5432570","Male","85","2024-12-14 04:10:43","3720220349969","0","ATA Head Office","108526",NULL
+"874770","Waqas Ahmad","Labor","Supply Chain","Store Officer","0305582545","Male","96","2024-12-14 04:10:43","3530112541497","0","ATA Head Office","108570",NULL
+"881656","Kashif Mushtaq Butt","Staff","Sales","Sales Officer","03107500618","Male","107","2024-12-14 04:10:42","3310267214173","0","DFF Head Office","102803",NULL
+"881661","Talha Farooq","Staff","Technical","Assistant Manager Utility","03401617118","Male","110","2024-12-14 04:10:42","3540174398695","0","(QAIE) Plant","106204",NULL
+"881673","Muhammad Akhtar","Staff","Finance ","Assistant Manager Reporting","03336750557","Male","101","2024-12-14 04:10:42","3810122977089","0","DFF Head Office","107836",NULL
+"881674","Bilal Ali","Staff","Sales","Sales Officer","03355090104","Male","107","2024-12-14 04:10:42","3740538112065","0","Islamabad","107843",NULL
+"881676","Shehryar Rahim","Staff","Human Resources","MTO","03228482538","Male","102","2024-12-14 04:10:42","3520171645037","0","Defence Raya","108031",NULL
+"881689","Muhammad Faizan Ashraf","Staff","Human Resources","HRBP - Executive","03447296919","Male","102","2024-12-14 04:10:42","3630248122055","0","Multan","108375",NULL
+"881704","Shoaib Siddiqui","Staff","Technical","AM Automation","0313-2899314","Male","110","2024-12-14 04:10:42","4220158725071","0","Muridke Plant","108408",NULL
+"881705","Muhammad Yasir Riaz","Staff","Technical","Assistant Production Manager","03009589792","Male","110","2024-12-14 04:10:42","3230473047653","0","Muridke Plant","108412",NULL
+"881707","Maaz Ali","Staff","Finance ","Finance Trainee Officer","0317-4572881","Male","101","2024-12-14 04:10:42","3340204304309","0","ATA Head Office","108420",NULL
+"881713","Adnan Rahim Bhatti","Staff","Sales","Sales Officer","03022904502","Male","107","2024-12-14 04:10:42","6110160441333","0","DFF Head Office","108428",NULL
+"881722","Salman Raheem","Staff","Finance ","Tax Executive","0333-4974816","Male","101","2024-12-14 04:10:43","3520287152997","0","DFF Head Office","108468",NULL
+"881728","Sohail Nawaz","Staff","Technical","Production Executive","03006797474","Male","110","2024-12-14 04:10:43","3610214819665","0","Muridke Plant","108480",NULL
+"881730","Farhan Siddique","Staff","Finance ","Finance Trainee Officer","03211451211","Male","101","2024-12-14 04:10:43","3520277093445","0","(QAIE) Plant","108487",NULL
+"881743","Usama Azam","Staff","Technical","Production Executive","03026650735","Male","110","2024-12-14 04:10:43","3450252398779","0","Muridke Plant","108522",NULL
+"881759","Mehran Ali","Staff","Technical","Manager Engineering",NULL,"Male","110","2024-12-14 04:10:43","3810152439713","0","(QAIE) Plant","108551",NULL
+"881761","Osama Raheen","Staff","Sales","Sales Officer","03432312160","Male","107","2024-12-14 04:10:43","4210119034793","0","DFF Head Office","108553",NULL
+"881765","Furqan -","Staff","Sales","Sales Officer","03188236010","Male","107","2024-12-14 04:10:43","4220183944829","0","DFF Head Office","108556",NULL
+"881771","Abdul Rauf","Staff","Sales","Sales Executive","03082184507","Male","107","2024-12-14 04:10:43","3650264338103","0","(QAIE) Plant","108569",NULL
+"882651","Rizwan Basit","Labor","Technical","Autocad Operator","03214284402","Male","110","2024-12-14 04:10:42","3520206943085","0","(QAIE) Plant","102130",NULL
+"882658","Fehran Abbas","Labor","Technical","Production Helper","03234309835","Male","110","2024-12-14 04:10:42","3720251405707","0","(QAIE) Plant","103241",NULL
+"882663","Shamser Iqbal","Labor","Finance ","Cashier","03476060400","Male","101","2024-12-14 04:10:42","3410446328923","0","Gujrat","106849",NULL
+"882667","Dost Muhammad","Labor","Technical","Production Helper",NULL,"Male","110","2024-12-14 04:10:42","3220303378863","0","(QAIE) Plant","107422",NULL
+"882668","Aamna Tariq","Labor","Technical","Graduate Trainee Engineer","03200483838","Male","110","2024-12-14 04:10:42","3630274666556","0","(QAIE) Plant","107663",NULL
+"882670","Muhammad Usman","Labor","Supply Chain","Checker","03055500952","Male","109","2024-12-14 04:10:42","3540460267213","0","Sheikhupura","107818",NULL
+"882677","Faisal Shahzad","Labor","Admin","Staff Fleet Supervisor","03223877735","Male","98","2024-12-14 04:10:42","3520190868289","0","(QAIE) Plant","108130",NULL
+"882684","Muhammad Atif","Labor","Technical","Oven Operator","0304-7867024","Male","110","2024-12-14 04:10:42","3540504532637","0","Muridke Plant","108366",NULL
+"882687","Usman Saleem","Labor","Export","Data Analyst","03228581631","Male","100","2024-12-14 04:10:42","3520180525055","0","DFF Head Office","108371",NULL
+"882695","abdul qadeer","Labor","Technical","Van Checker","03003241012","Male","110","2024-12-14 04:10:42","3530147560079","0","(QAIE) Plant","108387",NULL
+"882697","Muhammad Kashif","Labor","Supply Chain","Dispatch Helper","030213264","Male","109","2024-12-14 04:10:42","3110335918897","0","(QAIE) Plant","108390",NULL
+"882701","Mazhar Ali","Labor","Technical","Packing Machine Operator","03088582872","Male","110","2024-12-14 04:10:42","3540506022175","0","Muridke Plant","108405",NULL
+"882708","Ahmad Yar","Labor","Technical","Mechanical Technician","0300-8121526","Male","110","2024-12-14 04:10:42","3410294777975","0","Muridke Plant","108421",NULL
+"882709","Shoaib Ali","Labor","Technical","Packing Machine Operator","0317-7612606","Male","110","2024-12-14 04:10:42","3830397087877","0","Muridke Plant","108422",NULL
+"882716","Muhammad Aqib Jamil","Labor","Supply Chain","Warehouse In-Charge","03317070535","Male","109","2024-12-14 04:10:43","3630297805157","0","Multan","108437",NULL
+"882746","Zaid Hussain","Labor","Supply Chain","KPO","0328-9806342","Male","109","2024-12-14 04:10:43","3450260975425","0","Muridke Plant","108537",NULL
+"882747","Waqas Niamat","Labor","Technical","Utility Operator","03004460762","Male","110","2024-12-14 04:10:43","35405-0430104-9","0","Muridke Plant","108538",NULL
+"882751","Hashim Shabbir","Labor","Technical","Graduate Trainee Engineer",NULL,"Male","110","2024-12-14 04:10:43","3520036443817","0","Kamhan Lahore","108542",NULL
+"882766","Muhammad Sakhawat","Labor","Admin","Security Guard","03003299206","Male","98","2024-12-14 04:10:43","3710462122247","0","Muridke Plant","108565",NULL
+"882767","Hasan .","Labor","Technical","Electrical Technician","03058006674","Male","110","2024-12-14 04:10:43","3410227037057","0","Muridke Plant","108566",NULL
+"882768","Ubaidullah Siddiqui","Labor","Admin","Graduate Trainee Engineer","03112483545","Male","98","2024-12-14 04:10:43","3520262382235","0","(QAIE) Plant","108567",NULL
+"882771","Muhammad Afzaal","Labor","Technical","Fabricator","03116899422","Male","110","2024-12-14 04:10:43","3510323366461","0","Muridke Plant","108571",NULL
+"883660","Ali Khan","Staff","Finance ","Accounts Officer","03170000529","Male","101","2024-12-14 04:10:42","3410101680135","0","Gujranwala","105933",NULL
+"883664","Usama Arif","Staff","Finance ","Assistant Accounts Officer","03218651376","Male","101","2024-12-14 04:10:42","3520280850823","0","(QAIE) Plant","106882",NULL
+"883674","Syed Fahad Naeem","Staff","Supply Chain","Assistant Manager Transport","03363559297","Male","109","2024-12-14 04:10:42","4200028733883","0","(QAIE) Plant","107840",NULL
+"883686","Humayun Haseeb Baig","Staff","Quality","Group Head-QA","03215372298","Male","104","2024-12-14 04:10:42","3740507193725","0","Defence Raya","108370",NULL
+"883690","Ali Samran","Staff","Technical","Manager Engineering","03226580219","Male","110","2024-12-14 04:10:42","3510188771335","0","Muridke Plant","108372",NULL
+"883692","Saddam Fayyaz","Staff","Human Resources","HRBP - Executive","03479905815","Male","102","2024-12-14 04:10:42","8210260189881","0","Islamabad","108377",NULL
+"883698","Muhammad Salman Zaidi","Staff","Human Resources","HRBP - AM",NULL,"Male","102","2024-12-14 04:10:42","3520265558125","0","Gulshan Ravi U3","108392",NULL
+"883702","Muhammad Sajid","Staff","Sales","Sales Executive","03046818131","Male","107","2024-12-14 04:10:42","3610192835227","0","Muridke Plant","108406",NULL
+"883705","Muqaddas Fatima","Staff","Finance ","Finance Trainee Officer",NULL,"Male","101","2024-12-14 04:10:42","3520172037140","0","Defence Raya","108417",NULL
+"883714","Sayed Muzammil Abbas","Staff","Sales","Regional Sales Coordinator","03180167106","Male","107","2024-12-14 04:10:43","1210125799495","0","Gujranwala","108432",NULL
+"883721","Ahmed Ali Mirza","Staff","Sales","Regional Sales Manager","03000000000","Male","107","2024-12-14 04:10:43","3630279661141","0","Multan","108458",NULL
+"883732","Ahmad Waris","Staff","Sales","Sales Executive","03021625946","Male","107","2024-12-14 04:10:43","3460130093775","0","Dawn Group HO","108488",NULL
+"883733","Muhammad Umar Zaman","Staff","Sales","Sales officer","03039775007","Male","107","2024-12-14 04:10:43","3410132980351","0","DFF Head Office","108494",NULL
+"883745","Usman Ahmed","Staff","Quality","Quality Control Officer","03197341502","Male","104","2024-12-14 04:10:43","3530365485487","0","Muridke Plant","108523",NULL
+"883748","Muhammad Gulzar","Staff","Technical","Operations Skill Development Manager",NULL,"Male","110","2024-12-14 04:10:43","3320212488349","0","Defence Raya","108539",NULL
+"883755","Abdul Haseeb Shams","Staff","Finance ","Management Trainee Officer",NULL,"Male","101","2024-12-14 04:10:43","3520119994029","0","Defence Raya","108547",NULL
+"883758","Bilal Khan","Staff","Supply Chain","Management Trainee Officer",NULL,"Male","109","2024-12-14 04:10:43","3420155294523","0","Muridke Plant","108550",NULL
+"883760","Adil Yasin","Staff","Technical","Assistant Manager","03154563864","Male","110","2024-12-14 04:10:43","35103734776871","0","Manga Plant","108552",NULL
+"883762","Jawad Hussain","Staff","Sales","Sales Officer","034662233066","Male","107","2024-12-14 04:10:43","4240193499131","0","DFF Head Office","108554",NULL
+"883763","Syed Daniyal Hussain","Staff","Sales","Sales Officer","03142818796","Male","107","2024-12-14 04:10:43","4210176548163","0","DFF Head Office","108555",NULL
+"883765","Muhammad Rashid Ahmad","Staff","Sales","Sales Executive","03039409237","Male","107","2024-12-14 04:10:43","3120235278997","0","Bahawalpur","108557",NULL
+"883772","Bilal Razzak","Staff","Export","Sales Manager North America & EU",NULL,"Male","100","2024-12-14 04:10:43","546049590","0","DFF Head Office","108572",NULL
+"884655","Hammad Ali","Labor","Technical","Production Helper","03065701249","Male","110","2024-12-14 04:10:42","3640245144411","0","(QAIE) Plant","102521",NULL
+"884659","Babar Naseem","Labor","Quality","Executive","0348-6943171","Male","104","2024-12-14 04:10:42","3310024091909","0","ATA Head Office","105442",NULL
+"884662","Roshan Ali","Labor","Technical","Depanner Operator","03017734792","Male","110","2024-12-14 04:10:42","3120158761721","0","(QAIE) Plant","106628",NULL
+"884666","Muhammad Rehan Amin","Labor","Technical","Graduate Trainee Engineer","03128451206","Male","110","2024-12-14 04:10:42","1730194319029","0","(QAIE) Plant","107149",NULL
+"884671","Abrar Ahmed","Labor","Technical","HVAC Technician","03034040852","Male","110","2024-12-14 04:10:42","3540166168481","0","Muridke Plant","107819",NULL
+"884679","Ahmad Raza","Labor","Technical","Tray Checker","03034079205","Male","110","2024-12-14 04:10:42","3520179641797","0","(QAIE) Plant","108296",NULL
+"884683","Muhammad Awais Saif","Labor","Supply Chain","Store Officer","0304-4578127","Male","109","2024-12-14 04:10:42","3510325833813","0","Kamhan Lahore","108364",NULL
+"884685","Muhammad Naseer","Labor","Supply Chain","Warehouse Incharge","03056360337","Male","109","2024-12-14 04:10:42","3520295918059","0","Thokar WH","108369",NULL
+"884690","Israr Ali","Labor","Supply Chain","Dispatcher","03054504733","Male","109","2024-12-14 04:10:42","3520272746229","0","(QAIE) Plant","108376",NULL
+"884692","Muhammad Imran","Labor","Supply Chain","Dispatcher","03158077098","Male","109","2024-12-14 04:10:42","3520278118389","0","(QAIE) Plant","108378",NULL
+"884694","Muhammad Hanif","Labor","Technical","Circle Leader","03025291938","Male","110","2024-12-14 04:10:42","3320405270727","0","Muridke Plant","108385",NULL
+"884696","Kashif Ali","Labor","Technical","Moulding Plant Operator","03024447569","Male","110","2024-12-14 04:10:42","3540188411127","0","Muridke Plant","108388",NULL
+"884699","Ahsan Ali","Labor","Technical","Packing Machine Operator","03028747461","Male","110","2024-12-14 04:10:42","3510144375673","0","(QAIE) Plant","108394",NULL
+"884700","Muhammad Amjad","Labor","Technical","Packing Machine Operator",NULL,"Male","110","2024-12-14 04:10:42","3330233062391","0","(QAIE) Plant","108395",NULL
+"884706","Shahid Raza","Labor","Technical","Electrical Executive","03039212988","Male","110","2024-12-14 04:10:42","3540146544565","0","Muridke Plant","108418",NULL
+"884711","Aqib Aftab","Labor","Supply Chain","Store Officer","03435376921","Male","109","2024-12-14 04:10:42","8210119485165","0","Manga Plant","108427",NULL
+"884717","Mudassar Ul Hassan","Labor","Technical","Fabricator","0308-9179416","Male","110","2024-12-14 04:10:43","3220395405457","0","Muridke Plant","108445",NULL
+"884720","Syed Muhammad Hassan Ramzan","Labor","Supply Chain","WareHouse Incharge","03475939011","Male","109","2024-12-14 04:10:43","3720133574579","0","Jhelum","108457",NULL
+"884723","Saghir Hussain","Labor","Admin","Security Guard","03490862732","Male","98","2024-12-14 04:10:43","8230227630589","0","(QAIE) Plant","108471",NULL
+"884725","Muhammad Habib","Labor","Technical","Circle Leader","03276837404","Male","110","2024-12-14 04:10:43","3540195964473","0","Muridke Plant","108478",NULL
+"884726","Hassan Zia Arif","Labor","Technical","Process Controller","03157922426","Male","110","2024-12-14 04:10:43","3310533601433","0","Muridke Plant","108479",NULL
+"884752","Abdullah Marjan","Labor","Technical","Graduate Trainee Engineer",NULL,"Male","110","2024-12-14 04:10:43","3520263790045","0","Muridke Plant","108543",NULL
+"884753","Muhammad Ahmed Raza","Labor","Technical","Graduate Trainee Engineer",NULL,"Male","110","2024-12-14 04:10:43","3410159307785","0","Muridke Plant","108544",NULL
+"884756","Dildar Hussain","Labor","Admin","Security Guard","03475471901","Male","98","2024-12-14 04:10:43","3730211814955","0","(QAIE) Plant","108548",NULL
+"884757","Muhammad Alwaz Sheikh","Labor","Technical","Graduate Trainee Engineer",NULL,"Male","110","2024-12-14 04:10:43","3520238732717","0","Defence Raya","108549",NULL
+"885678","Sehrish Saleem","Staff","Finance ","AM Coordination","03000809260","Female","101","2024-12-14 04:10:42","3520266302012","0","Defence Raya","108204",NULL
+"885749","Humnah Armoghan","Staff","Marketing","Management Trainee Officer",NULL,"Female","103","2024-12-14 04:10:43","3520293968152","0","Defence Raya","108540",NULL
+"887676","Momina Bilal","Staff","Human Resources","MTO","03024889990","Female","102","2024-12-14 04:10:42","3520253583522","0","Defence Raya","108094",NULL
+"887735","Naqash Shinwari","Staff","Finance ","Finance Trainee Officer","03342307908","Female","101","2024-12-14 04:10:43","1430117833947","0","Manga Plant","108510",NULL
+"887754","Amna Shehzadi","Staff","Supply Chain","Management Trainee Officer",NULL,"Female","109","2024-12-14 04:10:43","3450165108394","0","Defence Raya","108545",NULL
+"888750","Zinia Nadeem Bhutta","Labor","Technical","Graduate Trainee Engineer",NULL,"Female","110","2024-12-14 04:10:43","3520219233084","0","(QAIE) Plant","108541",NULL

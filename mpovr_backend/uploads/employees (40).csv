@@ -1,0 +1,3 @@
+﻿"email","first_name","id","is_active","last_name","role","username"
+"admin2@innovatex.com","Bob","aba5c4ee-7fa2-496b-a70a-cf67a5c00ca4","false","Johnson","company_owner","admin2"
+"admin1@techcorp.com","Alice","4a6386d6-6ad3-45c6-a459-4b8abf9e5779","true","Smith","super_admin","admin1"

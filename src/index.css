@@ -2,21 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Benzin:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@font-face {
+    font-family: 'Europa Grotesk';
+    src: url('/src/fonts/Grotesk Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Blanks script';
+    src: url('/src/fonts/Brush.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Benzin Font';
+    src: url('/src/fonts/benzin-extrabold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* Heading styles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif; /* Default heading font */
+    font-family: 'Europa Grotesk', sans-serif; /* Use Europa Grotesk for headings */
 }
-
 /* Body text styles */
 p, span, div, li, a {
-    font-family: 'Open Sans', sans-serif; /* Default body text font */
+    font-family: 'Source Sans Pro', sans-serif; /* Default body text font */
 }
 
 .MontserratFont{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Europa Grotesk', sans-serif; /* Default heading font */
+}
+.Benzin-font{
+    font-family: 'Benzin Font', sans-serif; /* Default heading font */
+}
+.Blanks-script{
+    font-family: 'Blanks script', sans-serif; /* Default heading font */
+}
+.hide-scrollbar{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }

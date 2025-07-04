@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { ArrowRight, BookOpen, Video, Users, Calendar, Award, MessageSquare, FileCheck, Bell, GraduationCap, ClipboardCheck, Clock, DollarSign, Briefcase, Heart, CheckCircle, Globe, Zap, Trophy } from 'lucide-react';
-import TopCoursesSection from './courses.tsx'
-import StatsSection from './statsSection.tsx'
-import ProcessSection from './processSection.tsx';
-import FeaturesSection from './featureSection.tsx';
-import ProgramTermsSection from './programTermsSection.tsx'
-import ContactSection from './contactSection.tsx';
-import Footer from './footer.tsx';
-import HeroSection from './header.tsx';
-import FAQSection  from './faqSection.tsx';
+import TopCoursesSection from './landingPageComponents/courses.tsx'
+import StatsSection from './landingPageComponents/statsSection.tsx'
+import ProcessSection from './landingPageComponents/processSection.tsx';
+import FeaturesSection from './landingPageComponents/featureSection.tsx';
+import ProgramTermsSection from './landingPageComponents/programTermsSection.tsx'
+import ContactSection from './landingPageComponents/contactSection.tsx';
+import Footer from './landingPageComponents/footer.tsx';
+import HeroSection from './landingPageComponents/header.tsx';
+import FAQSection  from './landingPageComponents/faqSection.tsx';
 import theme from "../theme"; // Adjust the path as needed
 
 const LandingPage = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -31,9 +32,9 @@ const LandingPage = () => {
       {/* Hero Section with enhanced gradient and pattern */}
       <HeroSection/>
 
+      <FeaturesSection/>
 
       <TopCoursesSection/>
-      <FeaturesSection/>
 
       <ProcessSection/>
 
@@ -49,23 +50,6 @@ const LandingPage = () => {
 };
 
 
-
-
-// Enhanced Eligibility Card Component
-const EligibilityCard = ({ icon, title, description }) => (
-  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 group relative">
-    <div className="absolute inset-0 bg-gradient-to-br from-[#006d77]/5 to-[#83c5be]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-    <div className="w-16 h-16 bg-[#006d77] text-white rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform">
-      {icon}
-    </div>
-    <h3 className="text-xl font-bold mb-4 text-[#006d77]">{title}</h3>
-    <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
-    <button className="text-[#006d77] font-semibold inline-flex items-center group-hover:text-[#83c5be] transition-colors">
-      Learn More 
-      <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-    </button>
-  </div>
-);
 
 
 

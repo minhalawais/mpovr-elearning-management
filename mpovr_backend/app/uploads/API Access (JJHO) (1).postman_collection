@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "4b4433df-9e13-4ea5-b1cc-a49293d09fb2",
+		"name": "API Access (Official)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30042908"
+	},
+	"item": [
+		{
+			"name": "Oauth 2.0",
+			"item": [
+				{
+					"name": "Get Tokens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": " password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": " ",
+									"description": "view Masters > System Masters > Api Access to see Client Id",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "",
+									"description": "view Masters > System Masters > Api Access to see Client Secret",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"description": "username of the user of Resourceinn",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"description": "password of the user of Resourceinn",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "create-attendance-logs get-employment-data get-attendance-logs get-custom-payitems",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jjheadoffice-api.resourceinn.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"jjheadoffice-api",
+								"resourceinn",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "",
+									"description": "view Masters > System Masters > Api Access to see Refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": " ",
+									"description": "view Masters > System Masters > Api Access to see Client Id",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "",
+									"description": "view Masters > System Masters > Api Access to see Client Secret",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "create-attendance-logs get-employment-data get-attendance-logs get-custom-payitems",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jjheadoffice-api.resourceinn.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"jjheadoffice-api",
+								"resourceinn",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			}
+		},
+		{
+			"name": "Employment Data",
+			"item": [
+				{
+					"name": "Get Employments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <access_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jjheadoffice-api.resourceinn.com/api/v2/get-employments",
+							"protocol": "https",
+							"host": [
+								"jjheadoffice-api",
+								"resourceinn",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"get-employments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Employments ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <access_token>",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://jjheadoffice-api.resourceinn.com/api/v2/get-employments",
+									"protocol": "https",
+									"host": [
+										"jjheadoffice-api",
+										"resourceinn",
+										"com"
+									],
+									"path": [
+										"api",
+										"v2",
+										"get-employments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 08 Sep 2022 12:06:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "74778f5f7c3c3745-MXP"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "cf-apo-via",
+									"value": "origin,host"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6fJq6B%2B2lGxF4R1LC1OhPBU66qmfg1k4tqv%2FSyGX6r8dUiJ%2BYOuE6NhUoF0WfklmNUdkk%2FokU3yhxX6QlSjFyF%2FMtcVuiXryRN%2F%2FfF9xkRezPyjT6U3PGt1r4R10y%2BHGXcEYtsY4FDm7uYzNFoM%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"employee_email\": \"support@resourceinn.com\",\n            \"employee_code\": \"GPL-00007\",\n            \"employee_name\": \"Muhammad AbubaKaR Siddique\",\n            \"joining_date\": \"2022-03-22 00:00:00\",\n            \"date_of_birth\": \"1998-12-20 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"GPL-00015\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0111\",\n            \"employee_name\": \"Iqra Tahir\",\n            \"joining_date\": \"2021-12-10 00:00:00\",\n            \"date_of_birth\": \"1999-08-08 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0092\",\n            \"employee_name\": \"Tanveer  Ahmad\",\n            \"joining_date\": \"2011-08-10 00:00:00\",\n            \"date_of_birth\": \"1994-11-22 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"bilal1@gmail.com\",\n            \"employee_code\": \"CS-00015\",\n            \"employee_name\": \"Haris Rauf\",\n            \"joining_date\": \"2022-01-01 00:00:00\",\n            \"date_of_birth\": \"1994-05-04 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Muhammad AbubaKaR Siddique\",\n                \"email\": \"CS-00002\",\n                \"code\": \"marion.estimatingservices@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gamil.com\",\n            \"employee_code\": \"SNT-00152\",\n            \"employee_name\": \"GNT Ashraf\",\n            \"joining_date\": \"2022-01-01 00:00:00\",\n            \"date_of_birth\": \"2001-01-02 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@xyz.com\",\n            \"employee_code\": \"2CH-00003\",\n            \"employee_name\": \"Ahsan Michael\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1955-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Ayesha Abraham\",\n                \"email\": \"2CH-00002\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asd@s\",\n            \"employee_code\": \"2CH-00021\",\n            \"employee_name\": \"Muhammad Shanawar\",\n            \"joining_date\": \"2022-02-05 00:00:00\",\n            \"date_of_birth\": \"2006-05-10 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Mubbashar Abbas\",\n                \"email\": \"2CH-00010\",\n                \"code\": \"xyz@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0063\",\n            \"employee_name\": \"Sameer  Younas\",\n            \"joining_date\": \"2019-10-14 00:00:00\",\n            \"date_of_birth\": \"1997-11-14 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"sfsd@d\",\n            \"employee_code\": \"2CH-00022\",\n            \"employee_name\": \"dsd dsfsd\",\n            \"joining_date\": \"2022-03-03 00:00:00\",\n            \"date_of_birth\": \"2002-01-30 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"sde@gm\",\n            \"employee_code\": \"2CH-00016\",\n            \"employee_name\": \"sdfg hjklk\",\n            \"joining_date\": \"2021-12-07 00:00:00\",\n            \"date_of_birth\": \"2001-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"babarazam56@gmail.com\",\n            \"employee_code\": \"fcb-FCB-007\",\n            \"employee_name\": \"Babar Azam\",\n            \"joining_date\": \"2022-03-28 00:00:00\",\n            \"date_of_birth\": \"1995-07-02 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Bilal Khan\",\n                \"email\": \"fcb-FCB-001\",\n                \"code\": \"bilalsahab924@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"a@ds\",\n            \"employee_code\": \"2CH-PND-000\",\n            \"employee_name\": \"Muhammad Shanawar\",\n            \"joining_date\": \"2022-02-16 00:00:00\",\n            \"date_of_birth\": \"2001-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Ayesha Abraham\",\n                \"email\": \"2CH-00002\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer0021@gmail.com\",\n            \"employee_code\": \"SNT-00003\",\n            \"employee_name\": \"Asim Ameer\",\n            \"joining_date\": \"2021-08-11 00:00:00\",\n            \"date_of_birth\": \"1997-11-09 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Muhammad AbubaKaR Siddique\",\n                \"email\": \"SNT-00147\",\n                \"code\": \"marion.estimatingservices@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asd@gmail.com\",\n            \"employee_code\": \"CS-00007\",\n            \"employee_name\": \"Muhammad  Faizan\",\n            \"joining_date\": \"2022-03-22 00:00:00\",\n            \"date_of_birth\": \"1991-05-16 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"Bilal@gmail.com\",\n            \"employee_code\": \"GPL-GPL-ooo7\",\n            \"employee_name\": \"gulam Nabi\",\n            \"joining_date\": \"2022-03-26 00:00:00\",\n            \"date_of_birth\": \"1998-05-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Bilal Khan\",\n                \"email\": \"GPL-20005\",\n                \"code\": \"bilalsahab924@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@xyz.com\",\n            \"employee_code\": \"2CH-00009\",\n            \"employee_name\": \"Hira Disai\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1991-10-21 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Ayesha Abraham\",\n                \"email\": \"2CH-00002\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abcd@gmail.com\",\n            \"employee_code\": \"tera-00004\",\n            \"employee_name\": \"Meher Ghulam\",\n            \"joining_date\": \"2022-08-19 00:00:00\",\n            \"date_of_birth\": \"1997-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Muhammad Anwar Ul Haq\",\n                \"email\": \"tera-00002\",\n                \"code\": \"anwaarulhaq734@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0006\",\n            \"employee_name\": \"Aqib  Akhtar\",\n            \"joining_date\": \"2021-06-15 00:00:00\",\n            \"date_of_birth\": \"1998-11-26 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Junaid  Hussain\",\n                \"email\": \"SNT-SNT-0001\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"khn@gmail.com\",\n            \"employee_code\": \"CS-00008\",\n            \"employee_name\": \"Khansa  Idrees\",\n            \"joining_date\": \"2022-03-26 00:00:00\",\n            \"date_of_birth\": \"1998-05-13 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer886@gmail.com\",\n            \"employee_code\": \"SNT-00002\",\n            \"employee_name\": \"Laiba Mir\",\n            \"joining_date\": \"2021-09-06 00:00:00\",\n            \"date_of_birth\": \"2001-09-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer0021@gmail.com\",\n            \"employee_code\": \"CS-00003\",\n            \"employee_name\": \"Asim Ameer\",\n            \"joining_date\": \"2022-01-01 00:00:00\",\n            \"date_of_birth\": \"1997-11-09 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Muhammad AbubaKaR Siddique\",\n                \"email\": \"CS-00002\",\n                \"code\": \"marion.estimatingservices@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"bilalsahab91@gmail.com\",\n            \"employee_code\": \"fcb-FCB-010\",\n            \"employee_name\": \"Faisal  Hussain\",\n            \"joining_date\": \"2022-03-28 00:00:00\",\n            \"date_of_birth\": \"1981-10-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Bilal Khan\",\n                \"email\": \"fcb-FCB-001\",\n                \"code\": \"bilalsahab924@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"2CH-00002\",\n            \"employee_name\": \"Ayesha Abraham\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1995-06-09 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"shaheenshah10@gmail.com\",\n            \"employee_code\": \"fcb-FCB-009\",\n            \"employee_name\": \"shaheen Shah Afridi\",\n            \"joining_date\": \"2022-03-29 00:00:00\",\n            \"date_of_birth\": \"2001-02-02 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Bilal Khan\",\n                \"email\": \"fcb-FCB-001\",\n                \"code\": \"bilalsahab924@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"xyz@gmail.com\",\n            \"employee_code\": \"2CH-00010\",\n            \"employee_name\": \"Mubbashar Abbas\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1991-10-21 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"as@dsd\",\n            \"employee_code\": \"2CH-00020\",\n            \"employee_name\": \"sds dsa\",\n            \"joining_date\": \"2022-02-17 00:00:00\",\n            \"date_of_birth\": \"2001-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0001\",\n            \"employee_name\": \"Junaid  Hussain\",\n            \"joining_date\": \"2020-06-12 00:00:00\",\n            \"date_of_birth\": \"1998-06-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"2CH-00005\",\n            \"employee_name\": \"Ahad Dover\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1979-11-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Mubbashar Abbas\",\n                \"email\": \"2CH-00010\",\n                \"code\": \"xyz@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"moeezghaurigeekinn@gmail.com\",\n            \"employee_code\": \"2CH-00023\",\n            \"employee_name\": \"Noman Hassan\",\n            \"joining_date\": \"2022-03-03 00:00:00\",\n            \"date_of_birth\": \"2001-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0009\",\n            \"employee_name\": \"Tariq Shafiq\",\n            \"joining_date\": \"2021-05-15 00:00:00\",\n            \"date_of_birth\": \"1985-04-08 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Junaid  Hussain\",\n                \"email\": \"SNT-SNT-0001\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"bilalsahab924@gmail.com\",\n            \"employee_code\": \"GPL-20005\",\n            \"employee_name\": \"Bilal Khan\",\n            \"joining_date\": \"2018-02-01 00:00:00\",\n            \"date_of_birth\": \"1997-08-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"GPL-00015\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@xyz.com\",\n            \"employee_code\": \"2CH-00004\",\n            \"employee_name\": \"Fatima Dep\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1989-01-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Mubbashar Abbas\",\n                \"email\": \"2CH-00010\",\n                \"code\": \"xyz@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abs@dsd.sd\",\n            \"employee_code\": \"2CH-00018\",\n            \"employee_name\": \"Soft Tech\",\n            \"joining_date\": \"2022-01-01 00:00:00\",\n            \"date_of_birth\": \"2001-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"2CH-00007\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"xyz@gmail.com\",\n            \"employee_code\": \"CS-00004\",\n            \"employee_name\": \"Bilal Khan\",\n            \"joining_date\": \"2022-03-26 00:00:00\",\n            \"date_of_birth\": \"1997-08-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer886@gmail.com\",\n            \"employee_code\": \"CS-00006\",\n            \"employee_name\": \"Danial John\",\n            \"joining_date\": \"2022-03-28 00:00:00\",\n            \"date_of_birth\": \"1992-05-12 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"2CH-00001\",\n            \"employee_name\": \"Saud Ahmed\",\n            \"joining_date\": \"1981-12-29 00:00:00\",\n            \"date_of_birth\": \"1992-12-29 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Mubbashar Abbas\",\n                \"email\": \"2CH-00010\",\n                \"code\": \"xyz@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer886@gmail.com\",\n            \"employee_code\": \"SNT-00150\",\n            \"employee_name\": \"Mubbashara Toor\",\n            \"joining_date\": \"2022-07-12 00:00:00\",\n            \"date_of_birth\": \"2000-02-16 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Junaid  Hussain\",\n                \"email\": \"SNT-SNT-0001\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0040\",\n            \"employee_name\": \"Faraz Akhter\",\n            \"joining_date\": \"2019-02-14 00:00:00\",\n            \"date_of_birth\": \"1988-01-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Junaid  Hussain\",\n                \"email\": \"SNT-SNT-0001\",\n                \"code\": \"abc@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asifali13@gmail.com\",\n            \"employee_code\": \"fcb-FCB-008\",\n            \"employee_name\": \"Asif Ali\",\n            \"joining_date\": \"2022-03-28 00:00:00\",\n            \"date_of_birth\": \"1990-05-03 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"fakhar zaman\",\n                \"email\": \"fcb-FCB-005\",\n                \"code\": \"fakharzaman@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"moeezghaurigeekinn@gmail.com\",\n            \"employee_code\": \"GPL-00002\",\n            \"employee_name\": \"Laiba Mir\",\n            \"joining_date\": \"2021-12-01 00:00:00\",\n            \"date_of_birth\": \"2001-09-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"GPL-00015\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0004\",\n            \"employee_name\": \"Daim  Farhad\",\n            \"joining_date\": \"2016-06-10 00:00:00\",\n            \"date_of_birth\": \"1995-08-24 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Muhammad AbubaKaR Siddique\",\n                \"email\": \"SNT-00147\",\n                \"code\": \"marion.estimatingservices@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer886@gmail.com\",\n            \"employee_code\": \"SNT-SNT-0014\",\n            \"employee_name\": \"Muhammad  Salman Ali\",\n            \"joining_date\": \"2021-01-08 00:00:00\",\n            \"date_of_birth\": \"1998-02-02 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"SNT-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"CS-00013\",\n            \"employee_name\": \"Hassan Rizwan\",\n            \"joining_date\": \"2022-08-02 00:00:00\",\n            \"date_of_birth\": \"2000-06-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"CS-00009\",\n            \"employee_name\": \"Mubeen Ali\",\n            \"joining_date\": \"2022-03-22 00:00:00\",\n            \"date_of_birth\": \"1998-08-14 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"CS-00005\",\n            \"employee_name\": \"Laiba Mir\",\n            \"joining_date\": \"2022-03-27 00:00:00\",\n            \"date_of_birth\": \"2001-09-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"asimameer886@gmail.com\",\n            \"employee_code\": \"SNT-00151\",\n            \"employee_name\": \"Hassan Rizwan\",\n            \"joining_date\": \"2021-01-06 00:00:00\",\n            \"date_of_birth\": \"2000-06-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Laiba Mir\",\n                \"email\": \"SNT-00002\",\n                \"code\": \"asimameer886@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"TG-00003\",\n            \"employee_name\": \"Muhammad Khalid\",\n            \"joining_date\": \"2022-08-22 00:00:00\",\n            \"date_of_birth\": \"1981-05-06 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"yasir razzaq\",\n                \"email\": \"TG-00002\",\n                \"code\": \"abcde@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"CS-00011\",\n            \"employee_name\": \"Junaid  Hussain\",\n            \"joining_date\": \"2022-06-01 00:00:00\",\n            \"date_of_birth\": \"1998-06-15 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"bilalsahab924@gmail.com\",\n            \"employee_code\": \"fcb-FCB-006\",\n            \"employee_name\": \"gulam Nabi\",\n            \"joining_date\": \"2022-03-29 00:00:00\",\n            \"date_of_birth\": \"1998-05-01 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Bilal Khan\",\n                \"email\": \"fcb-FCB-001\",\n                \"code\": \"bilalsahab924@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@xyz.com\",\n            \"employee_code\": \"2CH-00006\",\n            \"employee_name\": \"Noor Hashmi\",\n            \"joining_date\": \"2020-01-01 00:00:00\",\n            \"date_of_birth\": \"1995-10-17 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Mubbashar Abbas\",\n                \"email\": \"2CH-00010\",\n                \"code\": \"xyz@gmail.com\"\n            }\n        },\n        {\n            \"employee_email\": \"abc@gmail.com\",\n            \"employee_code\": \"CS-00012\",\n            \"employee_name\": \"Sameer  Younas\",\n            \"joining_date\": \"2022-06-01 00:00:00\",\n            \"date_of_birth\": \"1997-11-14 00:00:00\",\n            \"reporting_manager\": {\n                \"name\": \"Asim Ameer\",\n                \"email\": \"CS-00003\",\n                \"code\": \"asimameer0021@gmail.com\"\n            }\n        }\n    ],\n    \"message\": \"Employee Employment retrieved successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Employment Codes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <access_token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jjheadoffice-api.resourceinn.com/api/v2/employments-with-code",
+							"protocol": "https",
+							"host": [
+								"jjheadoffice-api",
+								"resourceinn",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"employments-with-code"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Employment Code",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <access_token>",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://jjheadoffice-api.resourceinn.com/api/v2/employments-with-code",
+									"protocol": "https",
+									"host": [
+										"jjheadoffice-api",
+										"resourceinn",
+										"com"
+									],
+									"path": [
+										"api",
+										"v2",
+										"employments-with-code"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"code\": \"GI-00292\",\n            \"full_name\": \"Muhammad Aqib Azhar\"\n        },\n        {\n            \"code\": \"GI-00063\",\n            \"full_name\": \"Mozin Omer\"\n        },\n        {\n            \"code\": \"GI-01222\",\n            \"full_name\": \"Sufyan Ashraf\"\n        },\n        {\n            \"code\": \"GI-00238\",\n            \"full_name\": \"Noraiz Ghaffar\"\n        }\n        \n    ],\n    \"message\": \"Employee Employment retrieved successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,1 +1,1 @@
-#399fc6, #3756C0, #edf6f9 , #E18400
+#8b5cf6,#ede9fe,white

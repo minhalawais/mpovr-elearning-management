@@ -1,2 +1,5 @@
 node_modules/
 .next/
+.env
+mpovr_backend/.env
+mpovr_backend/venv/
